@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lightmask.png-75218917e09f939a23b277ca8414a358.stex"
+path="res://.import/64x-yellowgrey.png-1f94bebc34205d85043beb8d85ad5ada.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lightmask.png"
-dest_files=[ "res://.import/lightmask.png-75218917e09f939a23b277ca8414a358.stex" ]
+source_file="res://64x-yellowgrey.png"
+dest_files=[ "res://.import/64x-yellowgrey.png-1f94bebc34205d85043beb8d85ad5ada.stex" ]
 
 [params]
 

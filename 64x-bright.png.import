@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster_elk.png-6d2213a2410955b523feeb3b6b33d923.stex"
+path="res://.import/64x-bright.png-c2255799a6a4e74fb67891ceab575526.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://monster_elk.png"
-dest_files=[ "res://.import/monster_elk.png-6d2213a2410955b523feeb3b6b33d923.stex" ]
+source_file="res://64x-bright.png"
+dest_files=[ "res://.import/64x-bright.png-c2255799a6a4e74fb67891ceab575526.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
