@@ -35,7 +35,7 @@ func _ready():
 				_lo += 1
 				if rng.randi_range(1,10) == 1:
 					var _tree = Treesource.instance() 
-					_tree.position= Vector2( _i * TILE_SIZE + (TILE_SIZE / 2) ,\
+					_tree.position = Vector2( _i * TILE_SIZE + (TILE_SIZE / 2),\
 											 _j * TILE_SIZE + (TILE_SIZE / 2) )
 					add_child(_tree)
 			elif _k > 0.3:
