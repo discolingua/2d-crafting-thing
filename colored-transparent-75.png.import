@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2bitpalette.png-c006bb6ac3f7b3a84a3f85529167bed4.stex"
+path="res://.import/colored-transparent-75.png-5f964bc0b3ee09166bfa057a4daca066.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2bitpalette.png"
-dest_files=[ "res://.import/2bitpalette.png-c006bb6ac3f7b3a84a3f85529167bed4.stex" ]
+source_file="res://colored-transparent-75.png"
+dest_files=[ "res://.import/colored-transparent-75.png-5f964bc0b3ee09166bfa057a4daca066.stex" ]
 
 [params]
 

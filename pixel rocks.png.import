@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2bitpalette.png-c006bb6ac3f7b3a84a3f85529167bed4.stex"
+path="res://.import/pixel rocks.png-4e2ae911151949c658b5b57cc8fd1e17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2bitpalette.png"
-dest_files=[ "res://.import/2bitpalette.png-c006bb6ac3f7b3a84a3f85529167bed4.stex" ]
+source_file="res://pixel rocks.png"
+dest_files=[ "res://.import/pixel rocks.png-4e2ae911151949c658b5b57cc8fd1e17.stex" ]
 
 [params]
 

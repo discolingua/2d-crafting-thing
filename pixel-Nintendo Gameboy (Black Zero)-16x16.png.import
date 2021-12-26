@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2bitpalette.png-c006bb6ac3f7b3a84a3f85529167bed4.stex"
+path="res://.import/pixel-Nintendo Gameboy (Black Zero)-16x16.png-9ead1c7c45407c13feda65326fafe8d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2bitpalette.png"
-dest_files=[ "res://.import/2bitpalette.png-c006bb6ac3f7b3a84a3f85529167bed4.stex" ]
+source_file="res://pixel-Nintendo Gameboy (Black Zero)-16x16.png"
+dest_files=[ "res://.import/pixel-Nintendo Gameboy (Black Zero)-16x16.png-9ead1c7c45407c13feda65326fafe8d9.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

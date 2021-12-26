@@ -1,22 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://64x-yellowgrey.png" type="Texture" id=2]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ProcTilemap.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.913725, 0.937255, 0.92549, 1 )
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.333333, 0.333333, 0.407843, 1 )
 
 [node name="World" type="Node2D"]
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 160, 120 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0, -180, 320, 240 )
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+cell_size = Vector2( 16, 16 )
+script = ExtResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 93, 29 )
+position = Vector2( 102, 24 )
+z_index = 1000
 
-[node name="Wall Tiles" type="StaticBody2D" parent="."]
+[node name="HUD GUI" type="CanvasLayer" parent="."]
 
-[node name="TileMap" parent="." instance=ExtResource( 3 )]
+[node name="ProgressBar" type="ProgressBar" parent="HUD GUI"]
+margin_left = 9.0
+margin_top = 8.0
+margin_right = 73.0
+margin_bottom = 22.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
