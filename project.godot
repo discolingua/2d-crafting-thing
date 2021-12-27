@@ -13,6 +13,10 @@ config_version=4
 config/name="jamt"
 run/main_scene="res://World.tscn"
 
+[debug]
+
+gdscript/warnings/unused_class_variable=true
+
 [display]
 
 window/size/width=320

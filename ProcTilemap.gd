@@ -5,6 +5,7 @@ const GRASS_TILE = 1
 const PLAINS_TILE = 2
 
 const TILE_SIZE = 16
+const TILE_OFFSET = 8
 
 var Treesource = preload("res://Treesource.tscn")
 var Rocksource = preload("res://Rocksource.tscn")
@@ -12,7 +13,6 @@ var Rocksource = preload("res://Rocksource.tscn")
 var rng = RandomNumberGenerator.new()
 
 var _k = 0
-var _t = 0
 var _lo = 0
 var _hi = 0
 
@@ -35,16 +35,16 @@ func _ready():
 				_lo += 1
 				if rng.randi_range(1,10) == 1:
 					var _tree = Treesource.instance() 
-					_tree.position = Vector2( _i * TILE_SIZE + (TILE_SIZE / 2),\
-											 _j * TILE_SIZE + (TILE_SIZE / 2) )
+					_tree.position = Vector2( _i * TILE_SIZE + TILE_OFFSET,\
+											 _j * TILE_SIZE + TILE_OFFSET )
 					add_child(_tree)
 			elif _k > 0.3:
 				set_cell(_i, _j, GRASS_TILE)
 				_hi += 1
 				if rng.randi_range(1,20) == 1:
-					var _rock = Rocksource.instance()
-					_rock.position = Vector2( _i * TILE_SIZE + (TILE_SIZE / 2) ,\
-											 _j * TILE_SIZE + (TILE_SIZE / 2) )
+					var _rock = Rocksource.instance()	
+					_rock.position = Vector2( _i * TILE_SIZE + TILE_OFFSET,\
+											 _j * TILE_SIZE + TILE_OFFSET )
 					add_child(_rock)
 			else:
 				set_cell(_i, _j, PLAINS_TILE)
