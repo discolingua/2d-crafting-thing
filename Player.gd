@@ -9,6 +9,13 @@ enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
 
 var velocity = Vector2.ZERO
+
+var powerUpLevel = 0.0
+var powerUpRate = 0.5
+
+onready var powerUpGauge = get_tree().get_root().find_node("PowerUpBar", true, false)
+
+# default state for state machine
 var state = STATES.IDLE
 
 
@@ -53,8 +60,15 @@ func idle(delta):
 	pass
 	
 func powerup(_delta):
+	
+	while powerUpLevel <= 100:
+		powerUpLevel += powerUpRate
+		
+	powerUpGauge.value = powerUpLevel
+	
 	if Input.is_action_just_released("ui_accept"):
 		state=STATES.ATTACKING
+		powerUpLevel = 0
 	pass
 	
 func attack(_delta):
