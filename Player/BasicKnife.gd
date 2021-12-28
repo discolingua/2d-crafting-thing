@@ -13,7 +13,7 @@ func _ready():
 
 
 func _on_BasicKnife_body_entered(body):
-	print("hit tree")
+	print(hitStrength)
 	body.hitPoints -= hitStrength
 	if body.hitPoints <= 0:
 		body.queue_free()
