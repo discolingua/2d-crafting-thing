@@ -1,21 +1,16 @@
 extends Area2D
 
 export var hitStrength = 5
+var frames = 20
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta) -> void:
+	frames -= 1
+	if frames  < 0:
+		queue_free()
 
 
-func _on_BasicKnife_body_entered(body):
+func _on_BasicKnife_body_entered(body) -> void:
 	print(hitStrength)
 	body.hitPoints -= hitStrength
 	if body.hitPoints <= 0:
 		body.queue_free()
-	queue_free()
-	pass # Replace with function body.

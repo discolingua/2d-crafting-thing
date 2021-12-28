@@ -6,20 +6,23 @@ const FRICTION = 800
 
 enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 
+# reference to tool objects
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
 
 var velocity = Vector2.ZERO
+var lastVelocity = Vector2.ZERO
 
-var powerUpLevel = 0.0
-var powerUpRate = 1.5
+
 
 # reference to HUD components
 onready var powerUpGauge = get_tree().get_root().find_node("PowerUpBar", true, false)
+var powerUpLevel = 0.0
+var powerUpRate = 1.5
 
 # default state for state machine
 var state = STATES.IDLE
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	match state:
 		STATES.IDLE: idle(delta)
 		STATES.ATTACKING: attack(delta)
@@ -30,7 +33,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 
-func readMovement():
+func readMovement() -> Vector2:
 	var _i = Vector2.ZERO
 	
 	_i.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -40,16 +43,16 @@ func readMovement():
 	_i = _i.normalized()
 	return _i
 
-func walking(delta):
+func walking(delta) -> void:
 	var _i = readMovement()
 	if _i != Vector2.ZERO:	
+		lastVelocity = _i
 		velocity = velocity.move_toward(_i * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		state = STATES.IDLE
-	pass
 
-func idle(delta):
+func idle(delta) -> void:
 	var _i = readMovement()
 	if _i != Vector2.ZERO:
 		state = STATES.WALKING
@@ -59,7 +62,7 @@ func idle(delta):
 		state = STATES.POWERING
 	pass
 	
-func powerup(_delta):
+func powerup(_delta) -> void:
 	
 	if powerUpLevel <= 100:
 		powerUpLevel += powerUpRate
@@ -71,13 +74,12 @@ func powerup(_delta):
 		powerUpGauge.value = 0.0
 	pass
 	
-func attack(_delta):
+func attack(_delta) -> void:
 	var _knife = BasicKnife.instance()
 	_knife.position = get_parent().position
-	_knife.position.x += 8
 	_knife.hitStrength = (powerUpLevel * _knife.hitStrength) / 100 
+	_knife.rotation = lastVelocity.angle()
 	add_child(_knife)
 	powerUpLevel = 0
 	print("donk")
 	state = STATES.IDLE	
-	pass
