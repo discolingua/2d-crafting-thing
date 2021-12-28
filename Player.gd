@@ -14,22 +14,14 @@ var state = STATES.IDLE
 
 func _physics_process(delta):
 	match state:
-		STATES.IDLE: idle()
-		STATES.ATTACKING: attack()
+		STATES.IDLE: idle(delta)
+		STATES.ATTACKING: attack(delta)
 		STATES.WALKING: walking(delta)
-		STATES.POWERING: powerup()
-			
-	# input vector
-
-
+		STATES.POWERING: powerup(delta)
+		
 	# move_and_slide already has delta factored in from the physics engine
 	velocity = move_and_slide(velocity)
 
-#	if Input.is_action_just_released("ui_accept"):
-#		var _knife = BasicKnife.instance()
-#		_knife.position = Vector2(self.x + 16, self.y)
-#		add_child(_knife)
-#		print("donk")	
 
 func readMovement():
 	var _i = Vector2.ZERO
@@ -50,14 +42,26 @@ func walking(delta):
 		state = STATES.IDLE
 	pass
 
-func idle():
+func idle(delta):
 	var _i = readMovement()
 	if _i != Vector2.ZERO:
 		state = STATES.WALKING
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	if Input.is_action_just_pressed("ui_accept"):
+		state = STATES.POWERING
 	pass
 	
-func powerup():
+func powerup(_delta):
+	if Input.is_action_just_released("ui_accept"):
+		state=STATES.ATTACKING
 	pass
 	
-func attack():
+func attack(_delta):
+	var _knife = BasicKnife.instance()
+	_knife.position = get_parent().position
+	_knife.position.x += 8
+	add_child(_knife)
+	print("donk")
+	state = STATES.IDLE	
 	pass
