@@ -1,3 +1,4 @@
+class_name Treesource
 extends StaticBody2D
 
-export var hitPoints = 10
+export var hitPoints : int = 10

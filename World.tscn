@@ -28,9 +28,9 @@ script = ExtResource( 4 )
 position = Vector2( 158, 119 )
 z_index = 1000
 
-[node name="HUD GUI" type="CanvasLayer" parent="."]
+[node name="HUD_GUI" type="CanvasLayer" parent="."]
 
-[node name="PowerUpBar" type="ProgressBar" parent="HUD GUI"]
+[node name="PowerUpBar" type="ProgressBar" parent="HUD_GUI"]
 margin_left = 9.0
 margin_top = 8.0
 margin_right = 73.0

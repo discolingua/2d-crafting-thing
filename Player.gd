@@ -10,8 +10,8 @@ const FRICTION = 800
 enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 var state : int = STATES.IDLE
 
-# reference to tool objects
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
+onready var powerUpGauge = get_tree().get_root().find_node("PowerUpBar", true, false) 
 
 var velocity = Vector2.ZERO
 
@@ -21,9 +21,9 @@ var lastVelocity = Vector2.ZERO
 
 
 # reference to HUD components
-onready var powerUpGauge = get_tree().get_root().find_node("PowerUpBar", true, false)
 var powerUpLevel : float = 0.0 
 var powerUpRate : float = 1.5
+
 
 
 func _physics_process(delta) -> void:
@@ -79,7 +79,7 @@ func powerup(_delta) -> void:
 	pass
 	
 func attack(_delta) -> void:
-	var _attack = BasicKnife.instance()
+	var _attack : BasicKnife = BasicKnife.instance()
 	_attack.position = get_parent().position
 	_attack.hitStrength = (powerUpLevel * _attack.hitStrength) / 100 
 	_attack.rotation = lastVelocity.angle()
