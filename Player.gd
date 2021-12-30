@@ -10,20 +10,17 @@ const FRICTION = 800
 enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 var state : int = STATES.IDLE
 
-var BasicKnife = preload("res://Player/BasicKnife.tscn")
+# var BasicKnife = preload("res://Player/BasicKnife.tscn")
 onready var powerUpGauge = get_tree().get_root().find_node("PowerUpBar", true, false) 
-
-var velocity = Vector2.ZERO
+var BasicKnife = preload("res://Player/BasicKnife.tscn")
 
 # store most recent non-zero movement input for setting attack direction
+var velocity = Vector2.ZERO
 var lastVelocity = Vector2.ZERO
-
-
 
 # reference to HUD components
 var powerUpLevel : float = 0.0 
 var powerUpRate : float = 1.5
-
 
 
 func _physics_process(delta) -> void:

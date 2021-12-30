@@ -1,7 +1,7 @@
 class_name BasicKnife
 extends Area2D
 
-export var hitStrength : int = 5
+export var hitStrength : float = 5.0
 var frames : int = 20
 
 func _process(_delta) -> void:

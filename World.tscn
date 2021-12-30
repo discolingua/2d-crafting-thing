@@ -42,6 +42,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CountWood" type="Label" parent="HUD_GUI"]
+margin_left = 291.0
+margin_top = 220.0
+margin_right = 315.0
+margin_bottom = 234.0
+text = "000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountStone" type="Label" parent="HUD_GUI"]
+margin_left = 252.0
+margin_top = 220.0
+margin_right = 276.0
+margin_bottom = 234.0
+text = "000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SideWall" type="StaticBody2D" parent="."]
 
 [node name="LeftSideWall" type="CollisionShape2D" parent="SideWall"]
