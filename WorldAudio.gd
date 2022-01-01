@@ -1,4 +1,6 @@
 extends Node
+# global controller to manage audio playback
+# other scripts can 'WorldAudio.play("res://Sound/axeChop.wav")'
 
 var num_players = 8
 var bus = "master"
