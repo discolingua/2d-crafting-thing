@@ -41,6 +41,10 @@ _global_script_class_icons={
 config/name="jamt"
 run/main_scene="res://World.tscn"
 
+[autoload]
+
+WorldAudio="*res://WorldAudio.gd"
+
 [display]
 
 window/size/width=320

@@ -13,7 +13,7 @@ const FRICTION = 800
 var currentTool = 0
 var state : int = STATES.IDLE
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
-var SndAxeChop = preload("res://Sound/axeChop.wav")
+#var SndAxeChop = preload("res://Sound/axeChop.wav")
 var playerTools = [BasicKnife]
 
 onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
@@ -93,8 +93,8 @@ func attack(_delta) -> void:
 	_toolInstance.position = get_parent().position
 	_toolInstance.hitStrength = (powerUpLevel * _toolInstance.hitStrength) / 100 
 	_toolInstance.rotation = lastVelocity.angle()
-	$AudioStreamPlayer2D.stream = SndAxeChop
-	$AudioStreamPlayer2D.play()
+#	$AudioStreamPlayer2D.stream = SndAxeChop
+#	$AudioStreamPlayer2D.play()
 	add_child(_toolInstance)
 	powerUpLevel = 0
 	state = STATES.IDLE	
