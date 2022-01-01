@@ -1,8 +1,13 @@
 class_name BasicKnife
 extends Area2D
+# the basic wood chopping tool
 
-export var hitStrength : float = 5.0
+# cast hitStrength as float because it gets
+# multiplied by a percentage 
+export(float) var hitStrength : float = 5.0
+
 var frames : int = 20
+
 
 func _process(_delta) -> void:
 	frames -= 1

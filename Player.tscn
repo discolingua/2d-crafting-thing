@@ -21,3 +21,5 @@ texture = ExtResource( 2 )
 current = true
 limit_left = 0
 limit_right = 320
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
