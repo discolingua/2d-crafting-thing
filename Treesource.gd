@@ -1,7 +1,7 @@
 class_name Treesource
 extends StaticBody2D
 
-export var hitPoints : int = 10
+export(int) var hitPoints : int = 10
 
 onready var worldNode =  get_node("/root/World")
 

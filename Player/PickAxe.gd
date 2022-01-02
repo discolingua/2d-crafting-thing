@@ -1,6 +1,6 @@
-class_name BasicKnife
+class_name PickAxe
 extends Area2D
-# the basic wood chopping tool
+# the basic ore mining tool
 
 # cast hitStrength as float because it gets
 # multiplied by a percentage 
@@ -16,7 +16,7 @@ func _process(_delta) -> void:
 
 
 # this can be set to different item types by setting the collision layer masks
-func _on_BasicKnife_body_entered(body) -> void:
+func _on_BasicKnife_body_entered(body: Node2D) -> void:
 	print(hitStrength)
 	body.hitPoints -= hitStrength
 	WorldAudio.play("res://Sound/axeChop.wav")

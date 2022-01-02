@@ -10,15 +10,11 @@ const ACCELERATION = 600
 const MAX_SPEED = 100
 const FRICTION = 800
 
-var currentTool = 0
+var currentToolNumber: int = 0 setget set_currentToolNumber
 var state : int = STATES.IDLE
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
-#var SndAxeChop = preload("res://Sound/axeChop.wav")
-var playerTools = [BasicKnife]
-
-onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
-
-
+var PickAxe = preload("res://Player/PickAxe.tscn")
+var playerTools = [BasicKnife, PickAxe]
 
 # store most recent non-zero movement input for setting attack direction
 var velocity = Vector2.ZERO
@@ -29,8 +25,8 @@ var powerUpLevel : float = 0.0
 var powerUpRate : float = 1.5
 
 
-func _ready() -> void:
-	currentTool = BasicKnife
+onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
+
 
 
 func _physics_process(delta) -> void:
@@ -73,6 +69,13 @@ func idle(delta) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	if Input.is_action_just_pressed("ui_accept"):
 		state = STATES.POWERING
+		
+	# Q & E or bumpers cycle active tool
+	if Input.is_action_just_pressed("ui_focus_next"):
+		self.currentToolNumber += 1
+	if Input.is_action_just_pressed("ui_focus_prev"):
+		self.currentToolNumber -= 1
+		
  
 	
 func powerup(_delta) -> void:
@@ -89,12 +92,19 @@ func powerup(_delta) -> void:
 
 	
 func attack(_delta) -> void:
-	var _toolInstance = playerTools[0].instance()
+	var _toolInstance = playerTools[currentToolNumber].instance()
 	_toolInstance.position = get_parent().position
 	_toolInstance.hitStrength = (powerUpLevel * _toolInstance.hitStrength) / 100 
 	_toolInstance.rotation = lastVelocity.angle()
-#	$AudioStreamPlayer2D.stream = SndAxeChop
-#	$AudioStreamPlayer2D.play()
 	add_child(_toolInstance)
 	powerUpLevel = 0
 	state = STATES.IDLE	
+
+func set_currentToolNumber(value:int):
+	if value != currentToolNumber:
+		if value > playerTools.size():
+			currentToolNumber = 0
+		elif value < 0:
+			currentToolNumber = playerTools.size() - 1
+		else:
+			currentToolNumber = value

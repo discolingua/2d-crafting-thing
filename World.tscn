@@ -25,6 +25,7 @@ script = ExtResource( 4 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
+visible = true
 position = Vector2( 158, 119 )
 z_index = 1000
 
