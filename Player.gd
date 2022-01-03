@@ -11,6 +11,8 @@ const MAX_SPEED = 100
 const FRICTION = 800
 
 var currentToolNumber: int = 0 setget set_currentToolNumber
+var toolImages = ["res://pixelsword.png", "res://pixelPick.png"]
+var toolDisplay = NodePath("/root/HUD_GUI/ActiveToolDisplay:texture")
 var state : int = STATES.IDLE
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
 var PickAxe = preload("res://Player/PickAxe.tscn")
@@ -102,9 +104,11 @@ func attack(_delta) -> void:
 
 func set_currentToolNumber(value:int):
 	if value != currentToolNumber:
-		if value > playerTools.size():
+		if value > playerTools.size() - 1:
 			currentToolNumber = 0
 		elif value < 0:
 			currentToolNumber = playerTools.size() - 1
 		else:
 			currentToolNumber = value
+		print(currentToolNumber)
+		toolDisplay = toolImages[currentToolNumber]
