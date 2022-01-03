@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://Player.gd"
 }, {
 "base": "StaticBody2D",
+"class": "Rocksource",
+"language": "GDScript",
+"path": "res://Rocksource.gd"
+}, {
+"base": "StaticBody2D",
 "class": "Treesource",
 "language": "GDScript",
 "path": "res://Treesource.gd"
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "Item": "",
 "PickAxe": "",
 "Player": "",
+"Rocksource": "",
 "Treesource": ""
 }
 

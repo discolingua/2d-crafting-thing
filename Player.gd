@@ -14,6 +14,8 @@ var currentToolNumber: int = 0 setget set_currentToolNumber
 var toolImages = ["res://pixelsword.png", "res://pixelPick.png"]
 var toolDisplay = NodePath("/root/HUD_GUI/ActiveToolDisplay:texture")
 var state : int = STATES.IDLE
+var toolTexture = [ "res://pixelsword.png",
+					"res://pixelPick.png" ]
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
 var PickAxe = preload("res://Player/PickAxe.tscn")
 var playerTools = [BasicKnife, PickAxe]
@@ -29,7 +31,10 @@ var powerUpRate : float = 1.5
 
 onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
 
-
+func _ready() -> void:
+	for _i in playerTools.size() - 1:
+		pass
+	pass
 
 func _physics_process(delta) -> void:
 	match state:
@@ -78,7 +83,6 @@ func idle(delta) -> void:
 	if Input.is_action_just_pressed("ui_focus_prev"):
 		self.currentToolNumber -= 1
 		
- 
 	
 func powerup(_delta) -> void:
 	# the powerup state allows user to hold a button to fill the powerUpGauge,
@@ -102,6 +106,7 @@ func attack(_delta) -> void:
 	powerUpLevel = 0
 	state = STATES.IDLE	
 
+
 func set_currentToolNumber(value:int):
 	if value != currentToolNumber:
 		if value > playerTools.size() - 1:
@@ -111,4 +116,4 @@ func set_currentToolNumber(value:int):
 		else:
 			currentToolNumber = value
 		print(currentToolNumber)
-		toolDisplay = toolImages[currentToolNumber]
+		toolDisplay = load(toolImages[currentToolNumber])
