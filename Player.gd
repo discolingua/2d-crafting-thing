@@ -18,8 +18,8 @@ var PickAxe = preload("res://Player/PickAxe.tscn")
 var playerTools = [BasicKnife, PickAxe]
 
 # store most recent non-zero movement input for setting attack direction
-var velocity = Vector2.ZERO
-var lastVelocity = Vector2.ZERO
+var velocity : Vector2 = Vector2.ZERO
+var lastVelocity : Vector2 = Vector2.ZERO
 
 # reference to HUD components
 var powerUpLevel : float = 0.0 

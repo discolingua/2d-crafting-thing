@@ -19,6 +19,6 @@ func _process(_delta) -> void:
 func _on_BasicKnife_body_entered(body: CollisionObject2D) -> void:
 	print(hitStrength)
 	body.hitPoints -= hitStrength
-	WorldAudio.play("res://Sound/axeChop.wav")
+	WorldAudio.play("res://Sound/pickaxe.wav")
 	if body.hitPoints <= 0:
 		body.queue_free()
