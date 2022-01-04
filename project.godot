@@ -111,7 +111,8 @@ ui_focus_prev={
 [layer_names]
 
 2d_physics/layer_1="movement"
-2d_physics/layer_2="crafting"
+2d_physics/layer_2="wood"
+2d_physics/layer_3="stone"
 
 [physics]
 

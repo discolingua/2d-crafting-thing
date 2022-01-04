@@ -16,7 +16,7 @@ func _process(_delta) -> void:
 
 
 # this can be set to different item types by setting the collision layer masks
-func _on_BasicKnife_body_entered(body) -> void:
+func _on_BasicKnife_body_entered(body: CollisionObject2D) -> void:
 	print(hitStrength)
 	body.hitPoints -= hitStrength
 	WorldAudio.play("res://Sound/axeChop.wav")

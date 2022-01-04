@@ -11,11 +11,10 @@ const MAX_SPEED = 100
 const FRICTION = 800
 
 var currentToolNumber: int = 0 setget set_currentToolNumber
-var toolImages = ["res://pixelsword.png", "res://pixelPick.png"]
-var toolDisplay = NodePath("/root/HUD_GUI/ActiveToolDisplay:texture")
+var toolImages = []
+var toolDisplay = NodePath("/root/HUD_GUI/ActiveToolDisplay")
 var state : int = STATES.IDLE
-var toolTexture = [ "res://pixelsword.png",
-					"res://pixelPick.png" ]
+
 var BasicKnife = preload("res://Player/BasicKnife.tscn")
 var PickAxe = preload("res://Player/PickAxe.tscn")
 var playerTools = [BasicKnife, PickAxe]
@@ -28,13 +27,13 @@ var lastVelocity = Vector2.ZERO
 var powerUpLevel : float = 0.0 
 var powerUpRate : float = 1.5
 
-
+onready var toolTexture = [ "res://pixelsword.png",
+					"res://pixelPick.png" ]
 onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
 
 func _ready() -> void:
-	for _i in playerTools.size() - 1:
-		pass
 	pass
+	
 
 func _physics_process(delta) -> void:
 	match state:
@@ -116,4 +115,4 @@ func set_currentToolNumber(value:int):
 		else:
 			currentToolNumber = value
 		print(currentToolNumber)
-		toolDisplay = load(toolImages[currentToolNumber])
+		toolDisplay.texture = load(toolImages[currentToolNumber])
