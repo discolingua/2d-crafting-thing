@@ -47,3 +47,13 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 2 )
 expand = true
+
+[node name="Item" type="TextureRect" parent="Background/M/Grid/Inv1"]
+anchor_right = -0.25
+anchor_bottom = -0.25
+margin_right = 40.0
+margin_bottom = 40.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
