@@ -8,7 +8,6 @@ export(float) var hitStrength : float = 4.0
 
 var frames : int = 20
 
-
 func _process(_delta) -> void:
 	frames -= 1
 	if frames < 0:
