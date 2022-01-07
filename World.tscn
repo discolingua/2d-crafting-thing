@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ProcTilemap.gd" type="Script" id=4]
 [ext_resource path="res://pixelsword.png" type="Texture" id=5]
+[ext_resource path="res://Mobs/CliffDasher.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.913725, 0.937255, 0.92549, 1 )
@@ -103,3 +104,13 @@ shape = SubResource( 3 )
 [node name="RightSideWall" type="CollisionShape2D" parent="SideWall"]
 position = Vector2( 326, 157 )
 shape = SubResource( 3 )
+
+[node name="CliffDasher" parent="." instance=ExtResource( 6 )]
+position = Vector2( 113, 42 )
+collision_mask = 1
+
+[node name="CliffDasher" parent="CliffDasher" instance=ExtResource( 6 )]
+position = Vector2( -44, 98 )
+
+[node name="CliffDasher2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 245, 68 )
