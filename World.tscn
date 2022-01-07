@@ -109,8 +109,6 @@ shape = SubResource( 3 )
 position = Vector2( 113, 42 )
 collision_mask = 1
 
-[node name="CliffDasher" parent="CliffDasher" instance=ExtResource( 6 )]
-position = Vector2( -44, 98 )
-
 [node name="CliffDasher2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 245, 68 )
+collision_mask = 1

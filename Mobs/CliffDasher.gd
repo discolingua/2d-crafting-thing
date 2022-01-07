@@ -14,14 +14,13 @@ func _ready():
 	velocity = Vector2.RIGHT
 
 
-func on_SeekBox_body_entered(body: CollisionObject2D) -> void:
-	print("seen")
-	# var _direction = ai_get_direction()
-	#var _motion = _direction.normalized() * DIVE_SPEED
-	#move_and_slide(_motion)
-
-
 
 func ai_get_direction():
 	# return target.position - self.position
 	pass
+
+
+func _on_SeekRadius_body_entered(body:KinematicBody2D) -> void:
+	print(body)
+	print("dodongo")
+	pass # Replace with function body.
