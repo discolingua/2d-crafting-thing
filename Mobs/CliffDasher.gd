@@ -5,14 +5,12 @@ extends KinematicBody2D
 const GLIDE_SPEED = 120
 const DIVE_SPEED = 180
 
-var velocity : Vector2 = Vector2.ZERO
+var velocity : Vector2 = Vector2(30,0)
 var isDiving : bool = false
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	velocity = Vector2.RIGHT
-
+func _process(delta):
+	position += velocity * delta
 
 
 func ai_get_direction():
@@ -21,6 +19,4 @@ func ai_get_direction():
 
 
 func _on_SeekRadius_body_entered(body:KinematicBody2D) -> void:
-	print(body)
-	print("dodongo")
 	pass # Replace with function body.

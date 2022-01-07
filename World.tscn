@@ -20,6 +20,10 @@ extents = Vector2( 5, 1459 )
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 z_index = -100
 cell_size = Vector2( 16, 16 )
@@ -112,3 +116,5 @@ collision_mask = 1
 [node name="CliffDasher2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 245, 68 )
 collision_mask = 1
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

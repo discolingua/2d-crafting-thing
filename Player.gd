@@ -5,28 +5,29 @@ extends KinematicBody2D
 # initialize state machine
 enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 
-# physics engine
+const BasicKnife = preload("res://Player/BasicKnife.tscn")
+const PickAxe = preload("res://Player/PickAxe.tscn")
+
 const ACCELERATION = 600
 const MAX_SPEED = 100
 const FRICTION = 800
 
 var currentToolNumber: int = 0 setget set_currentToolNumber
 var state : int = STATES.IDLE
-
-var BasicKnife = preload("res://Player/BasicKnife.tscn")
-var PickAxe = preload("res://Player/PickAxe.tscn")
 var playerTools = [BasicKnife, PickAxe]
 
 # store most recent non-zero movement input for setting attack direction
 var velocity : Vector2 = Vector2.ZERO
 var lastVelocity : Vector2 = Vector2.ZERO
 
-# reference to HUD components
+
 var powerUpLevel : float = 0.0 
 var powerUpRate : float = 1.5
 
 onready var toolTexture = [ "res://pixelsword.png",
 					"res://pixelPick.png" ]
+
+# reference to HUD components					
 onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
 onready var toolDisplay = get_node("/root/World/HUD_GUI/ActiveToolDisplay")
 
