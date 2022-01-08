@@ -42,9 +42,6 @@ func _physics_process(delta) -> void:
 		STATES.WALKING: walking(delta)
 		STATES.POWERING: powerup(delta)
 		
-	# move_and_slide already has delta factored in from the physics engine
-	velocity = move_and_slide(velocity)
-
 
 func readMovement() -> Vector2:
 	var _i = Vector2.ZERO
@@ -61,7 +58,7 @@ func walking(delta) -> void:
 	var _i = readMovement()
 	if _i != Vector2.ZERO:	
 		lastVelocity = _i
-		velocity = velocity.move_toward(_i * MAX_SPEED, ACCELERATION * delta)
+		velocity = move_and_slide(_i * MAX_SPEED)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		state = STATES.IDLE

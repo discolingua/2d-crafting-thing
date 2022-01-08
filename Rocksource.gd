@@ -14,4 +14,4 @@ func _exit_tree():
 		var _cave = Cave.instance()
 		_cave.position = self.position
 		get_node("/root/World/TileMap").add_child(_cave)
-		print("cave")
+
