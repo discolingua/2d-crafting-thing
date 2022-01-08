@@ -13,10 +13,6 @@ func _process(delta):
 	position += velocity * delta
 
 
-func ai_get_direction():
-	# return target.position - self.position
-	pass
-
-
-func _on_SeekRadius_body_entered(body:KinematicBody2D) -> void:
-	pass # Replace with function body.
+func _on_SeekRadius_body_entered(_body:KinematicBody2D) -> void:
+		WorldAudio.play("res://Sound/CliffDasher2.wav")
+		# velocity = velocity.move_toward(body.position, DIVE_SPEED)

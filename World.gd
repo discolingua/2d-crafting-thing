@@ -28,6 +28,7 @@ func _on_SpawnTimer_timeout():
 	var _playerY = playerNode.position.y
 	var _y = _playerY + rand_range(-200,200)
 	var _cliffDasher = CliffDasher.instance()
-	_cliffDasher.position.x = -50
+	_cliffDasher.position.x = 50
 	_cliffDasher.position.y = _y
 	add_child(_cliffDasher)
+	_cliffDasher.velocity.x = 30

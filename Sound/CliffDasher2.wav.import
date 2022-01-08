@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CliffDasher2.wav-c56654e86feb8d1b8501fb19b54b306c.sample"
+
+[deps]
+
+source_file="res://Sound/CliffDasher2.wav"
+dest_files=[ "res://.import/CliffDasher2.wav-c56654e86feb8d1b8501fb19b54b306c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
