@@ -9,7 +9,7 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id=3]
 radius = 30.0
 
-[node name="CliffDasher" type="KinematicBody2D"]
+[node name="CliffDasher" type="KinematicBody2D" groups=["WanderingMobs"]]
 collision_layer = 0
 collision_mask = 256
 script = ExtResource( 2 )

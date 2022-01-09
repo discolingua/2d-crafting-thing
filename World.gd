@@ -24,6 +24,9 @@ func set_invStone(value:int):
 		$HUD_GUI/CountStone.text = str(invStone).pad_zeros(3)
 		
 
+func _on_CleanupTimer_timeout():
+	get_tree().call_group("WanderingMobs", "checkBounds")
+		
 
 func _on_SpawnTimer_timeout():
 	var _playerY = playerNode.position.y

@@ -23,6 +23,10 @@ script = ExtResource( 2 )
 wait_time = 3.0
 autostart = true
 
+[node name="CleanupTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 z_index = -100
 cell_size = Vector2( 16, 16 )
@@ -109,3 +113,4 @@ position = Vector2( 326, 157 )
 shape = SubResource( 3 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="CleanupTimer" to="." method="_on_CleanupTimer_timeout"]
